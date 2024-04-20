@@ -1,0 +1,30 @@
+project:
+  type: book
+
+book:
+  title: "R for Actuarial Statistics"
+  author: "Krishna Kumar Shrestha"
+  date: "4/19/2024"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    css: 
+      - custom.css  # Linking custom CSS file globally
+  pdf:
+    documentclass: scrreprt
+
+
+editor: visual
+
+styles:
+  justified:
+    text-align: justify
+    background-color: #f8f9fa  # pale white
