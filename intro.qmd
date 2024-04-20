@@ -1,0 +1,9 @@
+# Introduction
+
+This is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood please
+
+See @knuth84 for additional discussion of literate programming.
+
+```{r}
+1 + 1
+```

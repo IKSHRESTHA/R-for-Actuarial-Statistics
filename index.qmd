@@ -1,0 +1,15 @@
+# Preface {.unnumbered}
+
+Welcome to *Foundations of Statistical Modeling and Analysis: A Computational Approach*. I'm excited to be your guide through the intricate world of statistical science and programming. My name is Krishna Kumar Shrestha, and as an educator deeply passionate about mathematics and its applications, I've witnessed firsthand the transformative power of statistical analysis in various domains, from finance to healthcare and beyond.
+
+This course draws heavily from BMS102 Actuarial Statistics I and BMS152 Actuarial Statistics II and emphasizes the practical implementation of statistical concepts using the R programming language. This book focuses primarily on practical aspects rather than theoretical discussions. Through the R programming environment, you'll not only master the fundamental syntax and object types of R programming but also delve into probability distributions, data analysis, statistical inference, and regression theory.
+
+Approach each chapter with curiosity and diligence, embracing the challenges and celebrating the breakthroughs. Remember, mastery is a journey, not a destination. With dedication and perseverance, you'll emerge equipped to tackle the complexities of statistical modeling with confidence and precision.
+
+I extend my heartfelt gratitude to all the students, educators, and professionals who have contributed to this book's development, directly or indirectly. Your insights, feedback, and passion for learning have been invaluable.
+
+In closing, I wish you a fulfilling and enriching learning experience. May this book serve as a guiding light on your path to mastering the computational aspects of statistical modeling and analysis.
+
+Happy coding!
+
+Krishna Kumar Shrestha
