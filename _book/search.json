@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R for Actuarial Statistics",
+    "section": "",
+    "text": "Preface\nWelcome to Foundations of Statistical Modeling and Analysis: A Computational Approach. I’m excited to be your guide through the intricate world of statistical science and programming. My name is Krishna Kumar Shrestha, and as an educator deeply passionate about mathematics and its applications, I’ve witnessed firsthand the transformative power of statistical analysis in various domains, from finance to healthcare and beyond.\nThis course draws heavily from BMS102 Actuarial Statistics I and BMS152 Actuarial Statistics II and emphasizes the practical implementation of statistical concepts using the R programming language. This book focuses primarily on practical aspects rather than theoretical discussions. Through the R programming environment, you’ll not only master the fundamental syntax and object types of R programming but also delve into probability distributions, data analysis, statistical inference, and regression theory.\nApproach each chapter with curiosity and diligence, embracing the challenges and celebrating the breakthroughs. Remember, mastery is a journey, not a destination. With dedication and perseverance, you’ll emerge equipped to tackle the complexities of statistical modeling with confidence and precision.\nI extend my heartfelt gratitude to all the students, educators, and professionals who have contributed to this book’s development, directly or indirectly. Your insights, feedback, and passion for learning have been invaluable.\nIn closing, I wish you a fulfilling and enriching learning experience. May this book serve as a guiding light on your path to mastering the computational aspects of statistical modeling and analysis.\nHappy coding!\nKrishna Kumar Shrestha"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood please\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  }
+]
