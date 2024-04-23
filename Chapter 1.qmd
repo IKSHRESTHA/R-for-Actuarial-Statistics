@@ -1,0 +1,39 @@
+# Setting Up Your R Environment
+
+Before we can start coding in R, lets make sure everything is set up properly. In this chapter, we will install R and Rstudio, the tools you will use throughout this book. We will also explore the RStudio interface to understand where everything is and what each part does.
+
+## Installing R
+
+To install R, go to the Comprehensive R Archive Network (CRAN) website and choose the version that matches your operating system( Windows, macOS or Linux). Follow the on-screen instructions to complete the installation. If you run into any issues, check the FAQs on the CRAN website or reach out to online R forums for help.
+
+## Installing Rstudio.
+
+Once R is installed, lets install Rstudio. It's an integrated development environment(IDE) that makes working in with R easier. Visit the RStudio Website and download the desktop version for your operating system. After downloading, follow the installation steps to set up RStudio.
+
+## Exploring the RStudio Interface 
+
+When You first open Rstudio, it might look a bit overwhelming with multiple panes and buttons. Don't worry; we will break it down to understand what each part does and how to use it. Here's guide to the main components of the RStudio interface:
+
+1.  Console: This is where you can type and run R code directly. It's usually in the bottom-left corner of the screen. You can type commands here and press `Enter` to execute them.
+
+2.  Script Editor: This is where you write and save your R scripts ( A script in a file containing a series of R commands). If you don't see the Script Editor when you open RStudio, you can create a new script by clicking "File" \> "New File" \> "R Script." It will usually appear in the top-left corner. You can write your code here and run it in the Console by pressing `Ctrl + Enter` (Windows) or `Cmd+Enter` (macOS).
+
+3.  Environment Pane: This pane shows you all the variables, data frames, and other objects you are working with. By default, it's located in the top-right corner. This pane is useful for keeping track of the data in your current R session.
+
+4.  Files Pane: this pane displays the files in your working directory( the folder where Rstudio looks for files). It's usually in the bottom-right corner. You can use it to navigate through your files and open scripts or data files.
+
+5.  Plots Pane: This is where you will see any plots or graphs you create. By default, it's also in the bottom-right corner, typically sharing space with the files Pane. If you create a plot in R, it will appear here.
+
+6.  Packages Pane: This pane shows you the R packages installed on your system and allows you to install or update packages. It is Generally located in the bottom-right corner, sharing space with the Files and Plots Panes.
+
+7.  Help Pane: This pane provides documentation and help for R commands and packages. You can usually find it in the bottom-right corner as well. When you use the `?` command or press `F1` on a function, the documentation will appear in this pane.
+
+    ## Customizing Your Work Space
+
+    RStudio allows you to customize your work space by resizing and moving panes. If you find that the default layout doesn't suit you, you can adjust it. To move a pane, click and drag the tab to a new location. To resize a pane, hover over the edge of a pane until you see a double-headed arrow, then click and drag to adjust the size.
+
+8.  If you want to reset the layout to the default settings, go to "Tools" \> "Global Options" \> "Pane Layout" and click "Reset to Default". This will return the interface to its original setup.
+
+    > Exercise 2.1 What is the difference between R and RStudio? Describe the roles each plays in the process of writing and executing R code.
+    >
+    > Exercise 2.2 Explain the differences between the console and script file in Rstudio. When would you use one over the other?

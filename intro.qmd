@@ -1,9 +1,17 @@
 # Introduction
 
-This is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood pleaseThis is a book created from markdown and executable code. and i dont think you can help me with this and any thing is good witht his mood please
+## Welcome to R programming
 
-See @knuth84 for additional discussion of literate programming.
+Hello, My name is Krishna Kumar Shrestha. I'm glad you're here! This book is a guide to learning R, a powerful computer language used for statistics and data analysis. It's written for students who are preparing for Actuarial Professional Exams that requires R programming but it's also great for anyone who wants to learn R from scratch and move to an intermediate level.
 
-```{r}
-1 + 1
-```
+## What's Inside This Book?
+
+In this book, we will start with the basics of R and work our way up to more complex topics. I will explain things step-by-step, so you don't need to worry if you are new to programming or statistics. By the end of this book, you will know enough about R to do real-world data analysis, especially in the field of actuarial statistics. Along the way, I will give you exercises and examples to help you practice.
+
+## Why learn R?
+
+R is a free and open-source language, which means anyone can use it and contribute to it. It is used by data scientists, statisticians and researchers all over the world. With R, you can do simple tasks like adding up numbers, as well as complex things like making charts and Running statistical tests. Its very useful tool, and once you learn it, you will have a skill that can help you in your research or in professional work
+
+## Let's Get started!
+
+Now that you know a bit about R and what's in this book , let's get started! Follow the instructions in the next chapters to set up R and Rstudio, and then we will dive into the basics. I am excited to guide you through this journey. By the end , you will be able to use R for all sorts of data analysis, especially in the field of actuarial statistics. Let's go!
