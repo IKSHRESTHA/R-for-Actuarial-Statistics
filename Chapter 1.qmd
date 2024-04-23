@@ -10,7 +10,7 @@ To install R, go to the Comprehensive R Archive Network (CRAN) website and choos
 
 Once R is installed, lets install Rstudio. It's an integrated development environment(IDE) that makes working in with R easier. Visit the RStudio Website and download the desktop version for your operating system. After downloading, follow the installation steps to set up RStudio.
 
-## Exploring the RStudio Interface 
+## Exploring the RStudio Interface
 
 When You first open Rstudio, it might look a bit overwhelming with multiple panes and buttons. Don't worry; we will break it down to understand what each part does and how to use it. Here's guide to the main components of the RStudio interface:
 
