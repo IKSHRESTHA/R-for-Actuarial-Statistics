@@ -9,7 +9,9 @@ book:
     - index.qmd
     - intro.qmd
     - Chapter 1.qmd
-    - summary.qmd
+    - Chapter 2.qmd
+    - Chapter 3.qmd
+    - Linear Regression.qmd
     - references.qmd
 
 bibliography: references.bib

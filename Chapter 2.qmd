@@ -1,0 +1,204 @@
+# Working with Variables.
+
+## Introduction to Variables
+
+In R, a Variable is a named storage location for data. You can think of a variable as a label that points to a value or set of values. Variables allow you to store results, reuse values, and perform operations without retying the same information repeatedly. To create a variable, you assign a value to a name using the assignment operator `<-`. For example:
+
+```{r}
+x <- 42
+y<- "hello world !"
+```
+
+In this example, `x` is a variable containing the numeric value 42 and `y` is a variable containing the character string "Hello,R!"
+
+> You can use `class(x)` or `typeof(x)` to see its type
+
+### Best Practices when creating variable names
+
+Choosing appropriate names for your variables is essential for code readability and maintenance. Here are some best practices when creating variable names in R:
+
+-   Meaningful Names: Use descriptive names that reflect the purpose of the variables . for example, `age`, `total_sales` , or `is_student`.
+
+-   Avoid Reserved Words: R has reserved words that are used in its syntax ( like `if` , `c` , `for` etc.) Avoide using these as variable names, as it will cause errors.
+
+-   Use Underscores or CamelCase: To improve readability, use underscores (`_`) or camelCase (e.g., `myVariableName`). Avoid using spaces in variable names.
+
+No Special Characters: Variable names should contain only letters, numbers, or underscores. Avoid using special characters like `@` , `#` , etc.
+
+### Case Sensitivity
+
+R is case- sensitive, which means that variable names with different cases are considered separate. For example, `myVariable` and `MyVariable` are different variable. This case sensitivity allows flexibility, but it also requires careful naming to avoid errors due to mistyped variable names.
+
+### What's Allowed and What's Not Allowed in Variable Names
+
+When creating variable names in R, consider the following rules to ensure that your variable names are valid:
+
+-   Allowed characters: Variable names can contain letters (a-z,A-Z), number (0,9), and underscores(\_). The variable name must start with a letter or an underscore.
+
+-   Prohibited Characters: Do not use spaces, special characters, or operators. There will cause errors or lead to unexpected behavior.
+
+-   No reserved Words: Avoid using reserved words in R, such as `id`, `TRUE`, `FALSE` and others. You can find a full list of reserved words in the R documentation.
+
+## Creating Numeric Variables
+
+Numeric variables are used to store numbers in R. They can be integers or real numbers (with decimal points), and they are essential for performing arithmetic operations, statistical analysis, and more. To create a numeric variable in R, you assign a number to a variable name using the assignment operator `<-`. Let's explore how to create a numeric variables.
+
+```{r}
+# Assigning an integer
+age <- 25
+
+# assigning a real number (with decimal point)
+temperature <- 98.6
+```
+
+> `#` is a special character which is used for commenting in R. In this example, `age` is a numeric variable containing an integer, while `temprature` is a numeric variable with a real number (also known as a double or float).
+>
+> You can use `typeof()` function to find it.
+
+## Creating Character Variables
+
+Similarly character variables are used to store textual data, which can include words, phrases, sentences, or any other combination of characters. To create a character variable, you assign a string of text to a variable name using the assignment operator `<-`. In R, text strings are enclosed in either (`'`) or double (`"`) quotation marks.
+
+```{r}
+# Assigning a character variable 
+name <- "John Doe"
+
+# Assigning another character variable with single quotes
+
+greeting <- 'hello ,world!' # alternatively you could have used double quotes 
+```
+
+In this example , `name` and `greeting` are character variable containing strings of text.
+
+## Operators in R
+
+R has a variety of operators, each designed for specific purposes. They can be broadly categorized into the following types:
+
+-   Assignment Operators
+
+-   Arithmetic Operators
+
+-   Comparison Operators
+
+-   Logical Operators
+
+-   Miscellaneous Operators
+
+Let's take a closer look at each type.
+
+### Assignment Operators
+
+Assignment operators are used to assign values to variables. The most common assignment operators in R is `<-` , but `=` can also be used.
+
+```{r}
+# using assignment operator
+x <- 10 # assigns 1- to x 
+y=20 # assigns 20 to y
+```
+
+### Arithmetic Operators
+
+Arithmetic operators perform basic mathematical operators. Here's a list of common:
+
+-   Addition (`+`): Adds two or More numbers.
+
+-   Subtraction (`-`): Subtracts one value from another.
+
+-   Multiplication (`*`) : Multiplies two or more values
+
+-   Division (`/`): Divides one value by another.
+
+-   Exponentiation (`^`): Raises one value to the power of another.
+
+-   Modulus (`%%`): Returns the remainder when one value is divided by another.
+
+-   Integer Division(`%/%`): Returns the integer quotient when one value is divided another.
+
+Here's an example demonstrating the use of these operators:
+
+```{r}
+# Arithmetic operations
+a <- 10
+b <- 3
+
+# Basic arithmetic
+sum <- a + b           # 13
+difference <- a - b    # 7
+product <- a * b       # 30
+quotient <- a / b      # 3.333...
+
+# Exponentiation, Modulus, and Integer Division
+power <- a ^ 2         # 100
+modulus <- a %% b      # 1
+integer_quotient <- a %/% b  # 3
+
+```
+
+### Comparison Operators
+
+Comparison operators are used to compare values and return a logical result (TRUE or FALSE). These operators are often used in conditional statements and for subsetting data. Here's a list of common comparison operators:
+
+-   **Equal to (`==`)**: Checks if two values are equal.
+
+-   **Not equal to (`!=`)**: Checks if two values are not equal.
+
+-   **Greater than (`>`)**: Checks if one value is greater than another.
+
+-   **Less than (`<`)**: Checks if one value is less than another.
+
+-   **Greater than or equal to (`>=`)**: Checks if one value is greater than or equal to another.
+
+-   **Less than or equal to (`<=`)**: Checks if one value is less than or equal to another.
+
+```{r}
+# Comparison operations
+x <- 10
+y <- 20
+
+is_equal <- x == y   # FALSE
+is_not_equal <- x != y  # TRUE
+is_x_greater_than_y <- x > y  # FALSE
+is_x_less_than_y <- x < y  # TRUE
+
+```
+
+### Logical Operators
+
+Logical operators are used to combine logical conditions or negate them. They are often used in conditional statements and for filtering data. Here's a list of common logical operators:
+
+-   **AND (`&`)**: Returns TRUE if both conditions are true.
+
+-   **OR (`|`)**: Returns TRUE if at least one condition is true.
+
+-   **NOT (`!`)**: Negates a condition, turning TRUE to FALSE or vice versa.
+
+```{r}
+# Logical operations
+a <- TRUE
+b <- FALSE
+
+and_result <- a & b   # FALSE
+or_result <- a | b    # TRUE
+not_result <- !a      # FALSE
+
+```
+
+## Assignment
+
+1.  Given a principal of \$10,000, an annual interest rate of 5%, and a time period of 3 years, calculate the simple interest using the formula: **`I = P * r * t`**, where **`P`** is the principal, **`r`** is the interest rate, and **`t`** is the time in years. Write an R script to calculate this simple interest.
+2.  A principal of \$5,000 is compounded annually at a rate of 4% for 5 years. Calculate the compound interest using the formula: **`A = P * (1 + r/n)^(n * t)`**, where **`n`** is the number of compounding periods per year. Write an R script to calculate the final accumulated amount after 5 years.
+3.  Given a future value of \$20,000, a discount rate of 6%, and a time period of 4 years, calculate the present value using the formula: **`PV = FV / (1 + r)^t`**. Write an R script to find the present value with the given parameters.
+4.  Given an asset with an initial cost of \$50,000 and a residual value of \$10,000, use the straight-line method to calculate annual depreciation over 8 years. The formula is: **`Depreciation = (Cost - Residual Value) / Useful Life`**. Write an R script to calculate the annual depreciation.
+5.  A company has a revenue of \$100,000 and total expenses of \$70,000. Calculate the net profit margin using the formula: **`Net Profit Margin = (Net Income / Revenue) * 100`**, where **`Net Income = Revenue - Total Expenses`**. Write an R script to find the net profit margin.
+6.  Given a net income of \$50,000 and total equity of \$200,000, calculate the return on equity using the formula: **`ROE = (Net Income / Equity) * 100`**. Write an R script to compute this ratio.
+7.  A company has a net income of \$60,000 and 30,000 shares outstanding. Calculate the earnings per share using the formula: **`EPS = Net Income / Total Shares Outstanding`**. Write an R script to find the EPS.
+8.  Given a revenue of \$120,000, operating expenses of \$60,000, and other costs of \$10,000, calculate the operating profit margin using the formula: **`Operating Profit Margin = (Operating Profit / Revenue) * 100`**, where **`Operating Profit = Revenue - Operating Expenses - Other Costs`**. Write an R script to calculate this.
+9.  If total liabilities are \$150,000 and total equity is \$200,000, calculate the debt-to-equity ratio using the formula: **`Debt-to-Equity = Total Liabilities / Total Equity`**. Write an R script to compute this ratio.
+10. Given a net income of \$40,000 and total assets of \$250,000, calculate the return on assets using the formula: **`ROA = (Net Income / Total Assets) * 100`**. Write an R script to compute this ratio.
+11. If a company pays annual dividends of \$2 per share and the stock price is \$40, calculate the dividend yield using the formula: **`Dividend Yield = (Dividend per Share / Stock Price) * 100`**. Write an R script to calculate the dividend yield.
+12. Given earnings before interest and taxes (EBIT) of \$100,000 and annual interest expenses of \$20,000, calculate the interest coverage ratio using the formula: **`Interest Coverage Ratio = EBIT / Interest Expense`**. Write an R script to calculate this ratio.
+13. If the share price is \$50 and earnings per share is \$5, calculate the price-to-earnings ratio using the formula: **`P/E Ratio = Share Price / EPS`**. Write an R script to compute this ratio.
+14. Given a beginning inventory of \$30,000, purchases of \$50,000, and an ending inventory of \$20,000, calculate the cost of goods sold using the formula: **`COGS = Beginning Inventory + Purchases - Ending Inventory`**. Write an R script to calculate COGS.
+15. If current assets are \$100,000 and current liabilities are \$60,000, calculate the working capital using the formula: **`Working Capital = Current Assets - Current Liabilities`**. Write an R script to compute this.
+16. Given a gross profit of \$70,000 and revenue of \$120,000, calculate the gross profit margin using the formula: **`Gross Profit Margin = (Gross Profit / Revenue) * 100`**. Write an R script to find this ratio.
+17. If a company invests \$30,000 in new equipment, record this as a capital expenditure. Write an R script to assign this capital expenditure to a variable.

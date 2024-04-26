@@ -1,0 +1,407 @@
+# Linear Regression
+
+### **Introduction to Linear Regression**
+
+Linear regression aims to create a model that predicts or explains the dependent variable based on independent variables. It's called "linear" because the relationship between the variables is modeled as a straight line or a plane in a multi-dimensional space.
+
+Linear regression is widely used in various fields, including finance, economics, biology, and engineering, to understand relationships and make forecasts. It can be used for simple predictions or as a building block for more complex models.
+
+#### **The Linear Regression Equation**
+
+The linear regression equation represents the expected relationship between the dependent variable and the independent variables. In its simplest form, the linear regression equation is:
+
+$y=\beta_0+\beta_1*x_1+\beta_2*x_2+ϵ$
+
+-   $y$ is the dependent variable (the variable being predicted or explained).
+
+-   ​ $\beta_0$is the intercept (the value of $y$ when all $x_k$ values are zero).
+
+-   $\beta_1,\beta_2,\beta_3,...,\beta_k$​ are the coefficients (representing the effect of each independent variable on $y$).
+
+-   $x_1,x_2,x_3,...,x_k$​ are the independent variables (the predictors).
+
+-   𝜖 is the error term (representing the variability not explained by the model).
+
+The goal of linear regression is to find the values of $\beta_1,\beta_2,\beta_3,...,\beta_k$​ that minimize the sum of squared errors, which is the difference between the predicted values and the actual values.
+
+#### **Assumptions of Linear Regression**
+
+Linear regression relies on several key assumptions. Violations of these assumptions can affect the validity and reliability of the model. The primary assumptions are:
+
+-   **Linearity**: The relationship between the dependent variable and each independent variable must be linear. If the relationship is non-linear, linear regression may not be appropriate.
+
+-   **Independence**: The observations must be independent of each other. This assumption is critical in cases where data may have a time-related structure or where observations could be correlated.
+
+-   **Homoscedasticity**: The variance of the errors must be constant across different values of the independent variables. Uneven variance can lead to inaccurate estimates and biased statistical tests.
+
+-   **Normality of Errors**: The residuals (errors) should be approximately normally distributed. This assumption is crucial for hypothesis testing and confidence intervals.
+
+-   **No Multicollinearity**: The independent variables should not be highly correlated with each other. High multicollinearity can lead to unstable estimates and make it difficult to interpret the model.
+
+These assumptions should be checked and validated to ensure the linear regression model's robustness and reliability.
+
+### Fitting Linear Regression in R
+
+To start with linear regression, you need to load the dataset into your R session. We'll use the **`prestige`** dataset from the **`carData`** package, which contains information on various professions, including education, income, women, prestige, census, and type.
+
+#### **Loading the Data**
+
+First, ensure that the **`carData`** package is installed and loaded, then load the **`prestige`** dataset.
+
+```{r}
+# Install and load the carData package if needed
+if(!require(car)) {
+  install.packages("car")
+}
+library(carData)
+
+# Load the Prestige dataset
+data("Prestige")
+
+```
+
+#### Fitting Simple Linear regression
+
+To create a simple linear regression model in R, you can use the **`lm()`** function, which stands for "linear model." The basic structure of the function is as follows:
+
+```{r}
+# Fit a simple linear regression model
+reg1 <- lm(prestige ~ education, data = Prestige)
+
+```
+
+In this example, **`prestige`** is the dependent variable, and **`education`** is the independent variable. The tilde **`~`** separates the dependent variable on the left from the independent variable(s) on the right. The **`data`** parameter specifies the dataset used for the model.
+
+After fitting the model, you can use the **`summary()`** function to get detailed information about the linear regression model:
+
+```{r}
+# Get a summary of the linear regression model
+summary(reg1)
+
+```
+
+This command provides a comprehensive summary of the model, including coefficients, standard errors, t-values, and other statistics that help evaluate the model's performance.
+
+#### **Understanding the Model Summary**
+
+Here's what the summary output contains and what each section means:
+
+-   **Call**: This section shows the formula used to fit the model, confirming the variables and dataset.
+
+-   **Coefficients**:
+
+    -   **(Intercept)**: The estimated value of the dependent variable when the independent variable is zero.
+
+    -   **Education**: The estimated change in the dependent variable for each one-unit increase in education. A positive coefficient indicates a positive relationship.
+
+-   **Standard Errors**: These values represent the uncertainty or variability in the coefficient estimates. Smaller standard errors indicate more precise estimates.
+
+-   **t-values and p-values**:
+
+    -   **t-values**: Used to test the null hypothesis that the coefficient is zero. Higher absolute t-values suggest the coefficient is significant.
+
+    -   **p-values**: Indicate the probability of observing the estimated coefficient if the null hypothesis is true. Smaller p-values (e.g., less than 0.05) suggest statistical significance.
+
+-   **Residual Standard Error**: Represents the typical size of the residuals (differences between observed and predicted values). Lower values suggest a better fit.
+
+-   **R-squared and Adjusted R-squared**:
+
+    -   **R-squared**: Indicates the proportion of variance in the dependent variable explained by the independent variable(s). Higher R-squared values suggest a stronger relationship.
+
+    -   **Adjusted R-squared**: Adjusted for the number of predictors, providing a more accurate measure of fit for models with multiple independent variables.
+
+-   **F-statistic and p-value**: These values test the overall significance of the model. A significant p-value indicates that the model provides a statistically significant relationship.
+
+From the Above Summary Output:
+
+-   The intercept in approximately -10.732, indicating the expected prestige when education in zero
+
+-   The coefficient for `education` is 5.361, indicating that for every additional unit of education, prestige increases by 5.361
+
+-   The model has R-squared value of 0.7228, suggesting that 72% of the variance in prestige is explained by education.
+
+-   The p-value for `education` is very low, indicating that the relationship is statistically significant.
+
+### **Fitting a Multiple Linear Regression Model with Log-Transformed Variables**
+
+Multiple linear regression allows for more complex modeling by including multiple independent variables to predict a dependent variable. In this case, we fit a multiple linear regression model with **`prestige`** as the dependent variable, and **`education`**, a log transformation of **`income`**, and **`women`** as the independent variables.
+
+The use of log transformations is common when the independent variable has a skewed distribution or when we want to model the relative change (such as percentages). Here's the model definition and summary:
+
+```{r}
+# Fitting the multiple linear regression with log-transformed income
+reg2 <- lm(prestige ~ education + log(income) + women, data = Prestige)
+summary(reg2)
+
+```
+
+#### **Interpreting the Log-Transformed Coefficient**
+
+When we include a log-transformed variable in a regression model, the interpretation of its coefficient changes slightly. Instead of a linear increase for each unit, the coefficient represents the change in the dependent variable for a percentage change in the independent variable.
+
+In the **`summary(reg2)`**, the coefficient for **`log(income)`** indicates how much **`prestige`** is expected to change for a percentage change in **`income`**. To interpret it, you can divide the coefficient by 100. For example, if the coefficient for **`log(income)`** is 13.4382, the interpretation becomes:
+
+-   A 1% increase in **`income`** leads to an expected increase of about 0.13 points in **`prestige`**.
+
+#### **Handling Log Transformation of Variables with Zeros**
+
+If a variable contains zero values, direct log transformation is not possible, as the logarithm of zero is undefined. To address this issue, a common practice is to add a small constant (like 1) to every observation before applying the log transformation. This ensures that all values are positive and can be transformed safely.
+
+### **Using Categorical Variables in Linear Regression**
+
+Categorical variables can play a significant role in linear regression models. This guide focuses on how to include categorical independent variables in linear regression. When the dependent variable is categorical, alternative methods like logistic regression or multinomial regression are more appropriate.
+
+For this example, we consider the **`Prestige`** dataset and fit a linear regression model where **`prestige`** is the dependent variable, and the independent variables include **`education`**, a log transformation of **`income`**, and a categorical variable, **`type`**.
+
+```{r}
+# Fit a regression with a categorical variable
+reg3 <- lm(prestige ~ education + log(income) + type, data = Prestige)
+summary(reg3)
+
+```
+
+#### **Understanding Categorical Variables in Regression**
+
+In this model, **`type`** is a categorical or factor variable with three levels: **`bc`** (blue collar), **`prof`** (professional, managerial, and technical), and **`wc`** (white collar). R automatically recognizes it as a factor and treats it accordingly. The missing level in the coefficient summary (**`wc`** in this case) is considered the baseline or reference group. This means the other levels are compared to this baseline. If you want to get the estimate for the baseline group, remember to add the intercept value.
+
+#### **Changing the Reference Group**
+
+R automatically selects the first level as the reference group. If you want to change the reference group, you can manually reorder the factor levels.
+
+```{r}
+# Change the reference group to 'bc'
+Prestige$type <- factor(Prestige$type, levels = c("bc", "wc", "prof"))
+
+# Fit the regression model with the new reference group
+reg3_reorder <- lm(prestige ~ education + log(income) + type, data = Prestige)
+summary(reg3_reorder)
+
+```
+
+By reordering the levels, you change the baseline reference group. In this example, the new reference group is **`bc`** (blue collar).
+
+#### **Showing All Factor Levels**
+
+If you want to show all factor levels in the coefficient summary, including the baseline, you can remove the intercept in the model. This approach will display separate estimates for each factor level.
+
+```{r}
+# Fit the regression model without intercept to show all factor levels
+reg3_showall <- lm(prestige ~ 0 + education + log(income) + type, data = Prestige)
+summary(reg3_showall)
+
+```
+
+With this approach, all factor levels are displayed with their estimates, allowing you to see the effect of each level independently.
+
+### **Categorical Variables with Interaction Terms in Linear Regression**
+
+In linear regression, interaction terms allow us to study how the relationship between one independent variable and the dependent variable changes depending on the level of another independent variable. When working with categorical variables, interactions can reveal nuanced insights about the data.
+
+Here is an example of a linear regression model with interaction terms using the **`Prestige`** dataset. The model examines how **`prestige`** is influenced by interactions between **`type`** (a categorical variable with levels **`bc`**, **`wc`**, and **`prof`**) and **`education`** as well as **`log(income)`**.
+
+```{r}
+# Fit a regression model with interaction terms
+reg4 <- lm(prestige ~ type * (education + log(income)), data = Prestige)
+
+# Alternate ways to define the same interaction model
+reg4a <- lm(prestige ~ education + log(income) +
+              type + log(income):type + education:type,
+            data = Prestige)
+
+reg4b <- lm(prestige ~ education * type +
+              log(income) * type, data = Prestige)
+
+```
+
+### **Using Interaction Terms in Regression**
+
+Interaction terms can be defined using the **`*`** operator in the formula. In this example, **`type * (education + log(income))`** creates interaction terms between **`type`** and **`education`**, and **`type`** and **`log(income)`**. This can also be broken down into multiple explicit terms, as shown in **`reg4a`** and **`reg4b`**.
+
+### **Interpretation of Coefficients with Interaction Terms**
+
+To illustrate the interpretation of coefficients with interaction terms, consider the following table, which shows the coefficients for each variable across different levels of **`type`**:
+
+|             | **bc**  | **wc**                   | **prof**                 |
+|-------------|---------|--------------------------|--------------------------|
+| Intercept   | -120.05 | -120.05 + 30.24 = -89.81 | -120.05 + 85.16 = -34.89 |
+| log(income) | 15.98   | 15.98 - 8.16 = 7.82      | 15.98 - 9.43 = 6.55      |
+| education   | 2.34    | 2.34 + 3.64 = 5.98       | 2.34 + 0.697 = 3.037     |
+
+This table highlights that:
+
+-   The intercept differs based on the level of **`type`**.
+
+-   For **`bc`**, the intercept is -120.05, but for **`wc`** and **`prof`**, it is adjusted based on the interaction terms.
+
+-   Similar adjustments occur for **`log(income)`** and **`education`**, showing the effect of the interaction term on these coefficients.
+
+### **Generating Diagnostic Plots in R**
+
+To create diagnostic plots for a regression model, use the **`plot()`** function on your linear model object (**`lm`**). This will generate four key plots that help assess the assumptions of linear regression:
+
+1.  **Residuals vs. Fitted**: Checks for non-linearity and heteroscedasticity.
+
+2.  **Normal Q-Q**: Evaluates if the residuals follow a normal distribution.
+
+3.  **Scale-Location**: Assesses homoscedasticity.
+
+4.  **Residuals vs. Leverage**: Identifies influential points.
+
+To create these plots in a single output, you can use **`par(mfrow = c(2, 2))`** to arrange them in a 2x2 grid.
+
+```{r}
+# Assuming you have a linear regression model named 'reg'
+par(mfrow = c(2, 2))  # Set the plot layout to 2x2
+plot(reg1)             # Generate the diagnostic plots
+
+```
+
+#### **Interpreting Diagnostic Plots**
+
+Now let's go through each plot and describe what to look for, including potential issues and troubleshooting tips.
+
+1.  **Residuals vs. Fitted**
+
+    -   This plot should ideally show no distinct pattern. A pattern or curve suggests non-linearity, indicating that a transformation or polynomial regression may be needed. If the spread of residuals widens or narrows as fitted values increase, it suggests heteroscedasticity, which can be addressed with robust standard errors or transformation.
+
+2.  **Normal Q-Q**
+
+    -   This plot helps check if residuals follow a normal distribution. If the points follow a straight line, residuals are approximately normal. Deviations from this line, especially at the ends, suggest non-normality, which could require transformation or using non-parametric models.
+
+3.  **Scale-Location**
+
+    -   This plot checks for homoscedasticity. A horizontal line with even spread of points suggests constant variance of residuals. If the points form a funnel or exhibit other patterns, it indicates heteroscedasticity.
+
+4.  **Residuals vs. Leverage**
+
+    -   This plot helps identify influential points. Points with high leverage (far from the x-axis) or large residuals could significantly affect the regression results. Consider removing outliers or using robust regression techniques if influential points are identified.
+
+### **Predicting Values in R with Linear Regression**
+
+The **`predict()`** function requires two key inputs: the fitted regression model and a data frame containing the new data points for which you want predictions.
+
+First, let's create a data frame with the values for which you want to predict **`prestige`**:
+
+```{r}
+# Create a new data frame with education, log(income), and women values
+new_data <- data.frame(
+  education = c(12, 14),  # Example education values for two points
+  income = c(15000, 25000), # Example income values (before log transformation)
+  women = c(20, 30)         # Example women percentage values
+)
+
+# Log-transform the income column
+new_data$log_income = log(new_data$income)
+
+```
+
+Next, use the **`predict()`** function with the fitted model **`reg2`** to get the predicted **`prestige`** values:
+
+```{r}
+# Predict prestige using the fitted model and new data
+predictions <- predict(reg2, newdata = new_data)
+print(predictions)  # Display predicted prestige values
+
+```
+
+### **Plotting Regression Line for Simple Linear Regression in Base R**
+
+```{r}
+# Fit the simple linear regression model
+reg1 <- lm(prestige ~ education, data = Prestige)
+
+# Create a scatter plot with base R
+plot(Prestige$education, Prestige$prestige, 
+     xlab = "Education", 
+     ylab = "Prestige", 
+     main = "Regression of Prestige on Education")
+
+# Add the regression line
+abline(reg1, col = "red", lwd = 2)  # Add regression line with red color and thicker line
+
+```
+
+-   **`plot()`** creates the scatter plot with axes labeled and a title.
+
+-   **`abline()`** with a linear model as an argument adds the regression line.
+
+### **Optimizing Regression Models: Forward and Backward Selection Techniques**
+
+### **Forward Selection**
+
+Forward selection starts with no predictors and adds them one at a time, selecting the variable that improves the model's performance the most at each step. The process continues until adding new predictors does not significantly enhance the model.
+
+#### **How Forward Selection Works**
+
+1.  **Initial Model**: Start with an intercept-only model.
+
+2.  **Variable Addition**: Add the predictor that results in the greatest improvement in the model, usually evaluated using a criterion like AIC (Akaike Information Criterion), BIC (Bayesian Information Criterion), or adjusted R-squared.
+
+3.  **Iteration**: Repeat step 2, adding one variable at a time, until no additional variables improve the model.
+
+#### **Advantages and Disadvantages of Forward Selection**
+
+-   **Advantages**:
+
+    -   Relatively simple and computationally less expensive.
+
+    -   Can be useful when there are many potential predictors.
+
+-   **Disadvantages**:
+
+    -   May miss important interactions or nonlinear effects.
+
+    -   Can suffer from multicollinearity if variables are highly correlated.
+
+### **Backward Selection**
+
+Backward selection starts with a model that includes all potential predictors and removes them one at a time, dropping the variable that least improves the model at each step. The process continues until removing variables does not significantly affect the model.
+
+#### **How Backward Selection Works**
+
+1.  **Initial Model**: Start with a model that includes all predictors.
+
+2.  **Variable Removal**: Remove the predictor that has the least impact on the model, usually evaluated using a criterion like AIC, BIC, or adjusted R-squared.
+
+3.  **Iteration**: Repeat step 2, removing one variable at a time, until further removal significantly worsens the model.
+
+#### **Advantages and Disadvantages of Backward Selection**
+
+-   **Advantages**:
+
+    -   Can handle a large number of predictors and consider all of them.
+
+    -   May capture interactions or nonlinear effects better than forward selection.
+
+-   **Disadvantages**:
+
+    -   Requires more computation, especially with a large set of predictors.
+
+    -   Can be sensitive to multicollinearity.
+
+### **Application in R**
+
+To apply forward or backward selection in R, you can use the **`step()`** function, which performs both types of selection. Here's an example of backward selection:
+
+```{r}
+# Fit a model with all predictors
+full_model <- lm(prestige ~ education + log(income) + women, data = Prestige)
+
+# Perform backward selection
+backward_model <- step(full_model, direction = "backward")
+
+backward_model
+
+```
+
+And an example of forward selection:
+
+```{r}
+# Fit an intercept-only model
+null_model <- lm(prestige ~ 1, data = Prestige)
+
+# Perform forward selection
+forward_model <- step(null_model, direction = "forward", scope = ~ education + log(income) + women)
+forward_model
+
+```
