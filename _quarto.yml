@@ -11,7 +11,8 @@ book:
     - Chapter 1.qmd
     - Chapter 2.qmd
     - Chapter 3.qmd
-    - Linear Regression.qmd
+    - Chapter 4.qmd
+    - Regression.qmd
     - references.qmd
 
 bibliography: references.bib

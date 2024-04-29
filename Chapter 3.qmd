@@ -1,6 +1,6 @@
 # Basic Data Types and Data Structures in R
 
-## Introduction to Data type
+### Introduction to Data type
 
 Data types are foundational in any programming language, and R is no exception. Understanding data types allows you to work with data efficiently, ensuring that your code behaves as expected. In R, data types refer to the kind of data a variable or object holds. Let's explore the common data types in R and why it's essential to know about them.
 
@@ -90,7 +90,7 @@ Explicit type conversion is when you manually convert a variable from one type t
 
     ```
 
-## Introduction to Data Structures
+### Introduction to Data Structures
 
 Data structures are the building blocks for organizing, storing, and manipulating data in R. Understanding the variety of data structures available in R is essential for effective data analysis and programming. In this section, we will explore the most common data structures in R and their key characteristics.
 
@@ -196,9 +196,8 @@ sum_vector <- vector1 + vector2  # [5, 7, 9]
 
     ```
 
-```{=html}
 <!-- -->
-```
+
 -   **Indexing and Slicing**: You can access specific elements in a vector using indexing. This allows you to extract subsets of a vector.
 
     ```{r}
@@ -212,9 +211,8 @@ sum_vector <- vector1 + vector2  # [5, 7, 9]
 
     ```
 
-```{=html}
 <!-- -->
-```
+
 -   **Combining Vectors**: Vectors can be combined using **`c()`** or concatenated using **`append()`**.
 
     ```{r}
@@ -397,6 +395,331 @@ mat <- cbind(col1, col2)  # Warning due to different lengths
 
 In this case, the second vector has more elements than the first, leading to recycling or a warning.
 
+#### Matrix Operation
+
+##### **Addition and Subtraction**
+
+Matrix addition and subtraction are element-wise operations, meaning corresponding elements are added or subtracted.
+
+```{r}
+m1 <- matrix(1:4, nrow = 2, ncol = 2)
+m2 <- matrix(5:8, nrow = 2, ncol = 2)
+
+# Addition
+m_add <- m1 + m2
+
+# Subtraction
+m_sub <- m1 - m2
+
+print(m_add)
+print(m_sub)
+
+```
+
+##### Scalar Multiplication
+
+Scalar multiplication multiplies each element in a matrix by a scalar (a single number).
+
+```{r}
+scalar <- 3
+m_scalar_mult <- scalar * m1
+print(m_scalar_mult)
+
+```
+
+##### Matrix Multiplication
+
+Matrix multiplication requires that the number of columns in the first matrix equals the number of rows in the second matrix.
+
+```{r}
+m3 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3)
+m4 <- matrix(c(7, 8, 9, 10, 11, 12), nrow = 3, ncol = 2)
+
+m_mult <- m3 %*% m4
+print(m_mult)
+
+```
+
+##### Transposition
+
+Transposing a matrix flips rows and columns.
+
+```{r}
+m_transpose <- t(m1)
+print(m_transpose)
+
+```
+
+##### Matrix Inversion
+
+The inverse of a matrix **`A`** is a matrix **`B`** such that **`A %*% B = I`**, where **`I`** is the identity matrix.
+
+```{r}
+m_invertible <- matrix(c(4, 7, 2, 6), nrow = 2, ncol = 2)
+m_inverse <- solve(m_invertible)
+print(m_inverse)
+
+```
+
+##### Determinant
+
+The determinant is a scalar value that can be computed from a square matrix.
+
+```{r}
+det_val <- det(m_invertible)
+print(det_val)
+
+```
+
+##### Eigenvalues and Eigenvectors
+
+Eigenvalues and eigenvectors are used in many applications, including principal component analysis.
+
+```{r}
+eigen_result <- eigen(m_invertible)
+print(eigen_result$values)  # Eigenvalues
+print(eigen_result$vectors)  # Eigenvectors
+
+```
+
 ### Data Frames
 
-### Lists
+Data frames are a key structure in R, designed to hold tabular data. Each column in a data frame can contain different data types, such as numeric, character, or factor. This chapter explores various ways to create data frames, common operations, and a few advanced techniques.
+
+Data frames are similar to tables in relational databases or Excel spreadsheets. Each row represents an observation, and each column represents a variable.
+
+### **Creating a Data Frame from Vectors**
+
+One of the most straightforward ways to create a data frame is from vectors. You can use the **`data.frame()`** function to combine multiple vectors into a data frame.
+
+```{r}
+# Create individual vectors
+names <- c("Alice", "Bob", "Charlie")
+ages <- c(25, 30, 35)
+salaries <- c(50000, 60000, 70000)
+
+# Create a data frame
+df <- data.frame(Name = names, Age = ages, Salary = salaries)
+print(df)
+
+```
+
+#### Basic Data Frame Operations
+
+Data frames support common operations like adding rows and columns, selecting subsets of data, and modifying values.
+
+### **Adding Columns**
+
+You can add columns to an existing data frame by assigning a new variable to it.
+
+```{r}
+df$Location <- c("New York", "Los Angeles", "Chicago")
+print(df)
+
+```
+
+### **Adding Rows**
+
+To add rows, you can use **`rbind()`**, which concatenates data frames by rows.
+
+```{r}
+new_row <- data.frame(
+  Name = "David",
+  Age = 40,
+  Salary = 80000,
+  Location = "San Francisco"
+)
+
+df <- rbind(df, new_row)
+print(df)
+
+```
+
+### **Selecting Data**
+
+You can select subsets of data using indexing, conditions, or specific functions like **`subset()`**.
+
+```{r}
+# Select a single column
+print(df$Name)
+
+# Select multiple columns
+print(df[, c("Name", "Age")])
+
+# Select rows based on conditions
+df_older_than_30 <- subset(df, Age > 30)
+print(df_older_than_30)
+
+```
+
+### **Modifying Values**
+
+To update values in a data frame, you can use indexing and assignment.
+
+```{r}
+# Update a specific value
+df$Salary[df$Name == "Alice"] <- 55000
+print(df)
+
+# Update multiple values with conditions
+df$Location[df$Department == "HR"] <- "Boston"
+print(df)
+
+```
+
+### Advanced Data Frame Operations
+
+### **Merging Data Frames**
+
+To merge or join data frames, you can use the **`merge()`** function, specifying the common columns for joining.
+
+```{r}
+df2 <- data.frame(
+  Name = c("Alice", "Charlie", "David"),
+  Project = c("Alpha", "Beta", "Gamma")
+)
+
+# Merge data frames on the 'Name' column
+df_merged <- merge(df, df2, by = "Name")
+print(df_merged)
+
+```
+
+### **Applying Functions to Data Frames**
+
+Functions can be applied to rows or columns of a data frame using **`apply()`**, **`lapply()`**, or **`sapply()`**.
+
+```{r}
+# Find the mean salary
+mean_salary <- mean(df$Salary)
+print(mean_salary)
+
+# Apply a function to each row
+row_summary <- apply(df[, -1], 1, function(x) sum(as.numeric(x[2:3])))  # Exclude Name
+print(row_summary)
+
+```
+
+### **Lists in R**
+
+Lists in R are one of the most flexible data structures, allowing you to store different types of objects within a single list. In this chapter, we'll cover the basics of lists, ways to create them, and operations to access, modify, and manipulate their elements.
+
+A list in R is a collection of objects that can be of varying types and lengths. You can store vectors, data frames, matrices, functions, or even other lists within a list.
+
+### **Creating a List**
+
+To create a list in R, you use the **`list()`** function, passing in the objects you want to include in the list.
+
+```{r}
+# Create a simple list with different types of objects
+my_list <- list(
+  numbers = c(1, 2, 3, 4, 5),
+  letters = c("a", "b", "c"),
+  matrix = matrix(1:9, nrow = 3),
+  df = data.frame(Name = c("Alice", "Bob"), Age = c(25, 30))
+)
+
+print(my_list)
+
+```
+
+In this example, **`my_list`** contains a numeric vector, a character vector, a matrix, and a data frame.
+
+### **Named Lists**
+
+You can create lists with named elements for easier access.
+
+```{r}
+# Create a named list
+named_list <- list(
+  Name = "John",
+  Age = 40,
+  Salary = 60000
+)
+
+print(named_list)
+
+```
+
+### **Accessing List Elements**
+
+You can access elements in a list by index or by name. R allows for flexible methods to extract data from lists.
+
+### **Index-based Access**
+
+Use double square brackets **`[[ ]]`** to access elements by index. Single square brackets **`[ ]`** return a subset of the list as another list.
+
+```{r}
+# Access the first element (numeric vector)
+first_element <- my_list[[1]]
+print(first_element)
+
+# Access the first two elements as a sublist
+subset_list <- my_list[1:2]
+print(subset_list)
+
+```
+
+### **Name-based Access**
+
+When lists have named elements, you can access them using the element's name.
+
+```{r}
+# Access the 'letters' element
+letters_element <- my_list$letters
+print(letters_element)
+
+# Alternatively, using double square brackets with the name
+letters_element2 <- my_list[["letters"]]
+print(letters_element2)
+
+```
+
+### **Modifying List Elements**
+
+Lists in R are mutable, meaning you can change their elements, add new ones, or remove them.
+
+### **Changing Existing Elements**
+
+You can replace existing elements by assigning new values to them.
+
+```{r}
+# Change the first element to a new vector
+my_list[[1]] <- c(10, 20, 30)
+print(my_list)
+
+# Change a named element
+my_list$letters <- c("x", "y", "z")
+print(my_list)
+
+```
+
+### **Adding New Elements**
+
+You can add new elements to a list by assigning them with a new index or name.
+
+```{r}
+# Add a new element with a named index
+my_list$new_element <- "Hello, R!"
+print(my_list)
+
+# Add a new element with a numerical index
+my_list[[6]] <- c("extra", "items")
+print(my_list)
+
+```
+
+### **Removing Elements**
+
+To remove elements from a list, you can use **`NULL`** or the **`-`** operator with the index.
+
+```{r}
+# Remove the third element
+my_list[[3]] <- NULL
+print(my_list)
+
+# Remove the first element
+my_list <- my_list[-1]
+print(my_list)
+
+```

@@ -1,0 +1,554 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, interior hidden, sharp corners, breakable, enhanced, frame hidden]}{\end{tcolorbox}}\fi
+
+\hypertarget{control-structures-in-r-conditionals-and-loops}{%
+\subsubsection{\texorpdfstring{\textbf{Control Structures in R:
+Conditionals and
+Loops}}{Control Structures in R: Conditionals and Loops}}\label{control-structures-in-r-conditionals-and-loops}}
+
+Control structures in R allow you to manipulate the flow of your
+programs, making them more flexible and dynamic. In this chapter, we'll
+focus on conditionals and loops, showing you how to implement
+decision-making and repetition in your R scripts.
+
+\hypertarget{conditionals}{%
+\subsection{Conditionals}\label{conditionals}}
+
+Conditionals in R let you execute different blocks of code based on
+specific conditions. The most common conditional structure is the
+``if-else'' statement, but there are other variations as well.
+
+\hypertarget{if-else-statements}{%
+\subsubsection{If-Else Statements}\label{if-else-statements}}
+
+An ``if-else'' statement allows you to execute different code blocks
+depending on whether a condition is \textbf{\texttt{TRUE}} or
+\textbf{\texttt{FALSE}}. The general syntax is as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\ConstantTok{TRUE}\NormalTok{) \{}
+  \CommentTok{\# code to execute if condition is TRUE}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \CommentTok{\# code to execute if condition is FALSE}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+NULL
+\end{verbatim}
+
+Let's consider a simple example to illustrate the concept:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{10}
+
+\ControlFlowTok{if}\NormalTok{ (x }\SpecialCharTok{\textgreater{}} \DecValTok{5}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"x is greater than 5"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"x is less than or equal to 5"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "x is greater than 5"
+\end{verbatim}
+
+In this example, the condition \textbf{\texttt{x\ \textgreater{}\ 5}} is
+evaluated. Since it's \textbf{\texttt{TRUE}}, the first block of code is
+executed, printing ``x is greater than 5.''
+
+\hypertarget{else-if-statements}{%
+\subsubsection{Else IF Statements}\label{else-if-statements}}
+
+You can use ``else if'' statements to check multiple conditions in
+sequence. This is useful when there are more than two possible outcomes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{score }\OtherTok{\textless{}{-}} \DecValTok{85}
+
+\ControlFlowTok{if}\NormalTok{ (score }\SpecialCharTok{\textgreater{}=} \DecValTok{90}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Grade: A"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (score }\SpecialCharTok{\textgreater{}=} \DecValTok{80}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Grade: B"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Grade: C"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Grade: B"
+\end{verbatim}
+
+In this example, the ``else if'' statement allows us to assign grades
+based on a range of scores. If the first condition isn't met, the next
+one is checked, and so on, until a condition is \textbf{\texttt{TRUE}}
+or the ``else'' block is executed.
+
+\hypertarget{nested-if-statements}{%
+\subsubsection{Nested IF statements}\label{nested-if-statements}}
+
+You can also nest ``if'' statements within other ``if'' statements to
+create more complex decision-making logic.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{age }\OtherTok{\textless{}{-}} \DecValTok{18}
+\NormalTok{has\_id }\OtherTok{\textless{}{-}} \ConstantTok{TRUE}
+
+\ControlFlowTok{if}\NormalTok{ (age }\SpecialCharTok{\textgreater{}=} \DecValTok{18}\NormalTok{) \{}
+  \ControlFlowTok{if}\NormalTok{ (has\_id) \{}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"Allowed to enter"}\NormalTok{)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"ID required"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Not allowed to enter"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Allowed to enter"
+\end{verbatim}
+
+In this example, the outer ``if'' checks if the person is 18 or older.
+If true, the nested ``if'' checks if they have a valid ID. This kind of
+nesting is useful when you need to apply additional conditions within a
+broader context.
+
+\hypertarget{switch-statements}{%
+\subsubsection{Switch Statements}\label{switch-statements}}
+
+A ``switch'' statement allows you to execute different code blocks based
+on the value of a variable. This is similar to ``if-else'' but often
+more readable when dealing with multiple cases.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{day }\OtherTok{\textless{}{-}} \StringTok{"Tuesday"}
+
+\ControlFlowTok{switch}\NormalTok{(day,}
+  \StringTok{"Monday"} \OtherTok{=} \FunctionTok{print}\NormalTok{(}\StringTok{"Start of the workweek"}\NormalTok{),}
+  \StringTok{"Friday"} \OtherTok{=} \FunctionTok{print}\NormalTok{(}\StringTok{"End of the workweek"}\NormalTok{),}
+  \StringTok{"Saturday"} \OtherTok{=} \FunctionTok{print}\NormalTok{(}\StringTok{"Weekend!"}\NormalTok{),}
+  \StringTok{"Sunday"} \OtherTok{=} \FunctionTok{print}\NormalTok{(}\StringTok{"Weekend!"}\NormalTok{),}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"A regular weekday"}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "A regular weekday"
+\end{verbatim}
+
+In this example, the \textbf{\texttt{switch()}} function selects a code
+block to execute based on the value of \textbf{\texttt{day}}. If the
+value doesn't match any specified cases, the default code block is
+executed (the last statement without a named case).
+
+\hypertarget{loops}{%
+\subsection{Loops}\label{loops}}
+
+Loops are a fundamental concept in programming, allowing you to repeat
+code blocks multiple times. In R, loops come in various forms, including
+``for,'' ``while,'' and ``repeat'' loops. Let's explore these in detail.
+
+\hypertarget{for-loops}{%
+\subsubsection{For Loops}\label{for-loops}}
+
+A ``for'' loop iterates over a sequence, executing a code block for each
+element. This is useful when you know the exact number of iterations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Iterate over a vector}
+\NormalTok{vec }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ vec) \{}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Value:"}\NormalTok{, i))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Value: 1"
+[1] "Value: 2"
+[1] "Value: 3"
+[1] "Value: 4"
+[1] "Value: 5"
+\end{verbatim}
+
+In this example, the loop iterates over the vector
+\textbf{\texttt{vec}}, printing each value with a prefix ``Value:''. You
+can also use ``for'' loops with other sequences, such as character
+vectors or list indices.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Iterate over the names of a data frame}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Name =} \FunctionTok{c}\NormalTok{(}\StringTok{"Alice"}\NormalTok{, }\StringTok{"Bob"}\NormalTok{, }\StringTok{"Charlie"}\NormalTok{), }\AttributeTok{Age =} \FunctionTok{c}\NormalTok{(}\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{35}\NormalTok{))}
+
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in} \FunctionTok{names}\NormalTok{(df)) \{}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Column:"}\NormalTok{, name))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Column: Name"
+[1] "Column: Age"
+\end{verbatim}
+
+Here, the loop iterates over the column names of a data frame, printing
+the column names one by one.
+
+\hypertarget{while-loops}{%
+\subsubsection{While Loops}\label{while-loops}}
+
+A ``while'' loop continues to execute as long as a specified condition
+is \textbf{\texttt{TRUE}}. This is useful when the number of iterations
+is unknown or dependent on some condition.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example of a simple while loop}
+\NormalTok{counter }\OtherTok{\textless{}{-}} \DecValTok{1}
+
+\ControlFlowTok{while}\NormalTok{ (counter }\SpecialCharTok{\textless{}=} \DecValTok{5}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Counter:"}\NormalTok{, counter))}
+\NormalTok{  counter }\OtherTok{\textless{}{-}}\NormalTok{ counter }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Counter: 1"
+[1] "Counter: 2"
+[1] "Counter: 3"
+[1] "Counter: 4"
+[1] "Counter: 5"
+\end{verbatim}
+
+In this example, the loop continues as long as
+\textbf{\texttt{counter\ \textless{}=\ 5}}. Once the condition is
+\textbf{\texttt{FALSE}}, the loop terminates.
+
+\hypertarget{repeat-loops}{%
+\subsubsection{Repeat Loops}\label{repeat-loops}}
+
+A ``repeat'' loop is similar to a ``while'' loop, but it doesn't require
+a condition to start. It continues until an explicit
+\textbf{\texttt{break}} statement is encountered.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example of a repeat loop with a break condition}
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{0}
+
+\ControlFlowTok{repeat}\NormalTok{ \{}
+\NormalTok{  x }\OtherTok{\textless{}{-}}\NormalTok{ x }\SpecialCharTok{+} \DecValTok{1}
+  \ControlFlowTok{if}\NormalTok{ (x }\SpecialCharTok{\textgreater{}=} \DecValTok{5}\NormalTok{) \{}
+    \ControlFlowTok{break}
+\NormalTok{  \}}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"x is:"}\NormalTok{, x))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "x is: 1"
+[1] "x is: 2"
+[1] "x is: 3"
+[1] "x is: 4"
+\end{verbatim}
+
+In this example, the loop continues indefinitely until the condition
+\textbf{\texttt{x\ \textgreater{}=\ 5}} is met, at which point the
+\textbf{\texttt{break}} statement stops the loop.
+
+\hypertarget{nested-loops}{%
+\subsubsection{Nested Loops}\label{nested-loops}}
+
+You can nest loops within other loops to handle more complex tasks. This
+is useful for working with multi-dimensional data, such as matrices or
+data frames.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example of nested loops to iterate over a matrix}
+\NormalTok{matrix }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{)}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(matrix)) \{}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(matrix)) \{}
+    \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Element at ("}\NormalTok{, i, }\StringTok{","}\NormalTok{, j, }\StringTok{") is"}\NormalTok{, matrix[i, j]))}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Element at ( 1 , 1 ) is 1"
+[1] "Element at ( 1 , 2 ) is 4"
+[1] "Element at ( 1 , 3 ) is 7"
+[1] "Element at ( 2 , 1 ) is 2"
+[1] "Element at ( 2 , 2 ) is 5"
+[1] "Element at ( 2 , 3 ) is 8"
+[1] "Element at ( 3 , 1 ) is 3"
+[1] "Element at ( 3 , 2 ) is 6"
+[1] "Element at ( 3 , 3 ) is 9"
+\end{verbatim}
+
+In this example, nested loops are used to iterate over the rows and
+columns of a matrix, printing each element with its coordinates.
+
+\hypertarget{loop-control-statements}{%
+\subsection{Loop Control Statements}\label{loop-control-statements}}
+
+In addition to \textbf{\texttt{break}}, R provides
+\textbf{\texttt{next}} to skip an iteration and continue with the next
+one, and \textbf{\texttt{return}} to exit a loop and return a value (in
+functions).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example of using \textquotesingle{}next\textquotesingle{} to skip even numbers}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{) \{}
+  \ControlFlowTok{if}\NormalTok{ (i }\SpecialCharTok{\%\%} \DecValTok{2} \SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{  }\CommentTok{\# Check if even}
+    \ControlFlowTok{next}  \CommentTok{\# Skip even numbers}
+\NormalTok{  \}}
+  \FunctionTok{print}\NormalTok{(i)  }\CommentTok{\# Print odd numbers}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1
+[1] 3
+[1] 5
+[1] 7
+[1] 9
+\end{verbatim}
+
+Here, the \textbf{\texttt{next}} statement is used to skip even numbers,
+resulting in only odd numbers being printed.
+
+\begin{tcolorbox}[enhanced jigsaw, colback=white, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, coltitle=black, toprule=.15mm, breakable, toptitle=1mm, bottomtitle=1mm, opacitybacktitle=0.6, leftrule=.75mm, titlerule=0mm, arc=.35mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomrule=.15mm, left=2mm, opacityback=0]
+
+\end{tcolorbox}
+
+
+
+\end{document}
